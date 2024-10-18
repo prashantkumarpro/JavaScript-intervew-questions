@@ -25,7 +25,6 @@ This is one of the issues with `var`, as it can lead to unintended behavior, esp
 
 ---
 
-**Corrected Answer:**
 
 In JavaScript, there are two main categories of data types: **primitive** and **non-primitive** (or reference types).
 

@@ -124,9 +124,52 @@ In the above code:
 - `let b` and `const c` are hoisted but are not initialized until the point where their declarations appear in the code, so trying to access them before that results in a `ReferenceError`.
 
 ---
+## **Q3: What are the differences between var, let, and const in terms of scope, hoisting, and reassignment?**
 
- 
-## **Q: What are the different data types in JavaScript?**
+### Answer:
+
+1. **Scope:**
+   - `var` is **function-scoped**. This means that a `var` variable is accessible throughout the function or globally if declared outside any function.
+   - `let` and `const` are **block-scoped**, meaning they are only accessible within the block `{}` in which they are defined (such as inside loops, `if` statements, or functions).
+
+2. **Hoisting:**
+   - Variables declared with `var` are **hoisted** to the top of their scope and initialized with `undefined`. This is why you can reference a `var` variable before its declaration without getting an error, though its value will be `undefined` until it's assigned.
+   - `let` and `const` are also **hoisted**, but they are **not initialized**. Accessing them before their declaration will result in a **ReferenceError** because they are in the **Temporal Dead Zone (TDZ)** until the point where they are initialized.
+
+3. **Reassignment:**
+   - `var` and `let` can be **reassigned** after their declaration.
+   - `const` cannot be reassigned after its initial assignment. However, if a `const` is used with an **object** or **array**, the properties or elements of the object/array can still be **modified**, but you cannot reassign the entire object/array itself.
+
+---
+
+### Example to Demonstrate the Differences:
+
+```javascript
+function example() {
+    // Scope
+    if (true) {
+        var x = 1;      // function-scoped
+        let y = 2;      // block-scoped
+        const z = 3;    // block-scoped
+    }
+    console.log(x); // 1
+    console.log(y); // ReferenceError: y is not defined
+    console.log(z); // ReferenceError: z is not defined
+}
+example();
+
+// Hoisting
+console.log(a);  // undefined
+var a = 10;
+
+console.log(b);  // ReferenceError: Cannot access 'b' before initialization
+let b = 20;
+
+console.log(c);  // ReferenceError: Cannot access 'c' before initialization
+const c = 30;
+```
+
+## **Q4: What are the different data types in JavaScript?**
   
 **Answer**
 In JavaScript, there are two main categories of data types: **primitive** and **non-primitive** (or reference types).

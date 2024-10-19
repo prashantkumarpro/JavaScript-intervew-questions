@@ -126,7 +126,7 @@ In the above code:
 ---
 
  
-**## Q: What are the different data types in JavaScript?**
+## **Q: What are the different data types in JavaScript?**
   
 **Answer**
 In JavaScript, there are two main categories of data types: **primitive** and **non-primitive** (or reference types).

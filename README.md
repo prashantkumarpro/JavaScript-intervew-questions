@@ -24,15 +24,10 @@ This is one of the issues with `var`, as it can lead to unintended behavior, esp
 **### Q2: What are the different data types in JavaScript?**
   
 **Answer**
-  Your answer is mostly correct, but there's room for improvement and clarification. Here's a refined version with more detail:
-
----
-
-
 In JavaScript, there are two main categories of data types: **primitive** and **non-primitive** (or reference types).
 
 ### 1. **Primitive Data Types**:
-   These are the basic data types that are immutable, meaning their values cannot be altered.
+   These are the basic data types that are immutable, meaning their values cannot be altered (changed) directly.
    - **Number**: Represents both integer and floating-point numbers. Example: `42`, `3.14`
    - **String**: Represents text or sequences of characters. Example: `"Hello"`, `'World'`
    - **Boolean**: Represents a logical entity with two values: `true` or `false`.
@@ -40,19 +35,6 @@ In JavaScript, there are two main categories of data types: **primitive** and **
    - **Null**: Represents the intentional absence of any value.
    - **BigInt**: Used for very large integers that exceed the safe integer limit. Example: `123n`
    - **Symbol**: Used to create unique and immutable values, often used as object keys.
-
-### 2. **Non-Primitive Data Types** (Reference Types):
-   These are mutable and more complex data structures.
-   - **Object**: A collection of key-value pairs. Example: `{ name: "Prashant", age: 25 }`
-   - **Array**: A special kind of object used to store ordered lists of values. Example: `[1, 2, 3]`
-   - **Function**: A block of code that can be executed when called.
-   - **Date**: Represents date and time. Example: `new Date()`.
-
-### Key Point:
-- Primitive types are **passed by value**, while non-primitive types (objects, arrays) are **passed by reference**.
-
----
-In JavaScript, the term **immutable** means that once a value is created, it **cannot be changed** or modified directly. If you try to alter an immutable value, a new value is created instead, while the original remains unchanged.
 
 ### Example with Primitive Types (Immutable):
 Primitive data types like `number`, `string`, `boolean`, `null`, `undefined`, `symbol`, and `bigInt` are immutable. Here's an example:
@@ -71,6 +53,20 @@ console.log(newGreeting);  // Output: "Jello"
 ```
 
 Here, the string wasn't modified in place. Instead, a new string `"Jello"` was created, and the original `"Hello"` remained unchanged.
+
+In JavaScript, the term **immutable** means that once a value is created, it **cannot be changed** or modified directly. If you try to alter (change) an immutable value, a new value is created instead, while the original remains unchanged.
+
+### 2. **Non-Primitive Data Types** (Reference Types):
+   These are mutable and more complex data structures.
+   - **Object**: A collection of key-value pairs. Example: `{ name: "Prashant", age: 25 }`
+   - **Array**: A special kind of object used to store ordered lists of values. Example: `[1, 2, 3]`
+   - **Function**: A block of code that can be executed when called.
+   - **Date**: Represents date and time. Example: `new Date()`.
+
+### Key Point:
+- Primitive types are **passed by value**, while non-primitive types (objects, arrays) are **passed by reference**.
+
+---
 
 ### Example with Non-Primitive Types (Mutable):
 Non-primitive types like **objects** and **arrays** are mutable, meaning they can be modified:
@@ -125,6 +121,4 @@ Here, `obj2` holds a reference to the same object in memory as `obj1`. When you 
 - **Pass by value** copies the actual value. Changes to one copy do not affect the other.
 - **Pass by reference** passes the memory address. Changes to the reference affect the original object or array.
 
-This concept is important for working with objects and arrays in JavaScript, as modifying one reference affects all references to the same object.
 
-Let me know if you need more examples or clarification!

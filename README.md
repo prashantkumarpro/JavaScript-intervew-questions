@@ -3,7 +3,8 @@
 ** Let's start:**
 
 **### Q1: Can you explain the difference between `var`, `let`, and `const` in JavaScript?**
-Answer:
+
+**Answer:**
 - **`var`** is function-scoped, meaning it is accessible throughout the function where it's declared. It can also be re-declared and re-assigned, but it leads to issues like **hoisting** and **unexpected behaviors** due to its scope.
 - **`let`** is block-scoped, so it's only accessible within the block where it is declared (e.g., within an `if` statement or loop). You can re-assign `let`, but not re-declare it within the same scope.
 - In JavaScript, `var` can be **re-declared** within the same scope, which means you can declare the same variable multiple times without getting an error. Here's an example:

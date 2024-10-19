@@ -27,7 +27,7 @@ This is one of the issues with `var`, as it can lead to unintended behavior, esp
 In JavaScript, there are two main categories of data types: **primitive** and **non-primitive** (or reference types).
 
 ### 1. **Primitive Data Types**:
-   These are the basic data types that are immutable, meaning their values cannot be altered (changed) directly.
+   These are the basic data types that are **immutable**, meaning their values cannot be altered (changed) directly.
    - **Number**: Represents both integer and floating-point numbers. Example: `42`, `3.14`
    - **String**: Represents text or sequences of characters. Example: `"Hello"`, `'World'`
    - **Boolean**: Represents a logical entity with two values: `true` or `false`.
@@ -37,7 +37,7 @@ In JavaScript, there are two main categories of data types: **primitive** and **
    - **Symbol**: Used to create unique and immutable values, often used as object keys.
 
 ### Example with Primitive Types (Immutable):
-Primitive data types like `number`, `string`, `boolean`, `null`, `undefined`, `symbol`, and `bigInt` are immutable. Here's an example:
+_Primitive data types like `number`, `string`, `boolean`, `null`, `undefined`, `symbol`, and `bigInt` are immutable. Here's an example:_
 
 ```javascript
 let greeting = "Hello";

@@ -2,7 +2,7 @@
 
 ** Let's start:**
 
-**### Q1: Can you explain the difference between `var`, `let`, and `const` in JavaScript?**
+**## Q1: Can you explain the difference between `var`, `let`, and `const` in JavaScript?**
 
 **Answer:**
 - **`var`** is function-scoped, meaning it is accessible throughout the function where it's declared. It can also be re-declared and re-assigned, but it leads to issues like **hoisting** and **unexpected behaviors** due to its scope.
@@ -20,8 +20,112 @@ In this case, `var` allows you to declare the `name` variable twice in the same 
 This is one of the issues with `var`, as it can lead to unintended behavior, especially in larger codebases, which is why `let` and `const` (block-scoped) are preferred for better control.
 
 - **`const`** is also block-scoped like `let`, but it **cannot be re-assigned** after its initial assignment. However, if the `const` holds an object or array, you can still modify the contents of that object or array.
-- 
-**### Q2: What are the different data types in JavaScript?**
+
+**## Q2: Can you explain hoisting in JavaScript, specifically in the context of var, let, and const?**
+**Answer:** Sure! Let's break down **hoisting** in JavaScript and how it works with `var`, `let`, and `const`.
+---
+
+### **What is Hoisting?**
+
+**Hoisting** is a JavaScript mechanism where variable and function declarations are moved (or "hoisted") to the top of their scope before code execution. This means that you can use variables and functions before they appear in the code, but the behavior varies depending on how they are declared.
+
+In hoisting:
+- Variable **declarations** (but not assignments) are hoisted.
+- Function **declarations** (entire functions) are hoisted.
+
+However, variables declared with `var`, `let`, and `const` behave differently when hoisted.
+
+---
+
+### **Hoisting with `var`**
+
+- When you declare a variable with `var`, **the declaration is hoisted** to the top of the function or global scope, but it is initialized with `undefined` until the assignment is encountered.
+- This is why you can reference `var` variables before they are initialized without getting an error.
+
+#### Example:
+```javascript
+console.log(x);  // Output: undefined
+var x = 5;
+console.log(x);  // Output: 5
+```
+
+**Explanation:**
+- The `var` declaration is hoisted, but its value is set to `undefined` until the assignment `x = 5` is executed. So, when `console.log(x)` is called before the assignment, it logs `undefined`.
+
+---
+
+### **Hoisting with `let`**
+
+- Variables declared with `let` are also hoisted, but they are **not initialized**. They remain in the **Temporal Dead Zone (TDZ)** from the start of the block until they are initialized.
+- Accessing the variable before initialization results in a **ReferenceError**.
+
+#### Example:
+```javascript
+console.log(y);  // ReferenceError: Cannot access 'y' before initialization
+let y = 10;
+console.log(y);  // Output: 10
+```
+
+**Explanation:**
+- The `let` declaration is hoisted, but because the variable is in the TDZ, accessing it before the initialization causes a `ReferenceError`.
+
+---
+
+### **Hoisting with `const`**
+
+- Variables declared with `const` behave similarly to `let`. They are hoisted but remain in the **Temporal Dead Zone** until they are initialized.
+- Accessing a `const` variable before initialization results in a **ReferenceError**.
+- Additionally, once initialized, `const` variables cannot be reassigned.
+
+#### Example:
+```javascript
+console.log(z);  // ReferenceError: Cannot access 'z' before initialization
+const z = 15;
+console.log(z);  // Output: 15
+```
+
+**Explanation:**
+- Just like with `let`, the `const` declaration is hoisted, but trying to access `z` before it’s initialized results in a `ReferenceError`.
+
+---
+
+### **Comparison of `var`, `let`, and `const` Hoisting**
+
+| Variable Type | Hoisted | Initial Value Before Assignment | TDZ (Temporal Dead Zone) | Can Be Reassigned? |
+|---------------|---------|---------------------------------|--------------------------|--------------------|
+| `var`         | Yes     | `undefined`                     | No                       | Yes                |
+| `let`         | Yes     | Not initialized (TDZ)            | Yes                      | Yes                |
+| `const`       | Yes     | Not initialized (TDZ)            | Yes                      | No                 |
+
+---
+
+### **Summary:**
+- **`var`** is hoisted and initialized with `undefined`. You can reference it before assignment, but it will give `undefined` until the actual assignment.
+- **`let`** and **`const`** are hoisted but are not initialized. They are in the **temporal dead zone** (TDZ) and accessing them before the initialization line throws a `ReferenceError`. `const` also cannot be reassigned once initialized.
+
+---
+
+### Example Code (to understand all together):
+
+```javascript
+console.log(a);  // undefined (var is hoisted and initialized to undefined)
+var a = 5;
+
+console.log(b);  // ReferenceError: Cannot access 'b' before initialization
+let b = 10;
+
+console.log(c);  // ReferenceError: Cannot access 'c' before initialization
+const c = 15;
+```
+
+In the above code:
+- `var a` is hoisted and initialized as `undefined` before its assignment.
+- `let b` and `const c` are hoisted but are not initialized until the point where their declarations appear in the code, so trying to access them before that results in a `ReferenceError`.
+
+---
+
+ 
+**## Q: What are the different data types in JavaScript?**
   
 **Answer**
 In JavaScript, there are two main categories of data types: **primitive** and **non-primitive** (or reference types).

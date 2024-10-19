@@ -22,6 +22,7 @@ This is one of the issues with `var`, as it can lead to unintended behavior, esp
 - **`const`** is also block-scoped like `let`, but it **cannot be re-assigned** after its initial assignment. However, if the `const` holds an object or array, you can still modify the contents of that object or array.
 
 **## Q2: Can you explain hoisting in JavaScript, specifically in the context of var, let, and const?**
+
 **Answer:** Sure! Let's break down **hoisting** in JavaScript and how it works with `var`, `let`, and `const`.
 ---
 

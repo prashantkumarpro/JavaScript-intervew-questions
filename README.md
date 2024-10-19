@@ -2,7 +2,7 @@
 
 ** Let's start:**
 
-##** Q1: Can you explain the difference between `var`, `let`, and `const` in JavaScript?**
+## ** Q1: Can you explain the difference between `var`, `let`, and `const` in JavaScript?**
 
 ###**Answer:**
 - **`var`** is function-scoped, meaning it is accessible throughout the function where it's declared. It can also be re-declared and re-assigned, but it leads to issues like **hoisting** and **unexpected behaviors** due to its scope.

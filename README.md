@@ -20,7 +20,9 @@ In this case, `var` allows you to declare the `name` variable twice in the same 
 This is one of the issues with `var`, as it can lead to unintended behavior, especially in larger codebases, which is why `let` and `const` (block-scoped) are preferred for better control.
 
 - **`const`** is also block-scoped like `let`, but it **cannot be re-assigned** after its initial assignment. However, if the `const` holds an object or array, you can still modify the contents of that object or array.
+- 
 **### Q2: What are the different data types in JavaScript?**
+  
 **Answer**
   Your answer is mostly correct, but there's room for improvement and clarification. Here's a refined version with more detail:
 

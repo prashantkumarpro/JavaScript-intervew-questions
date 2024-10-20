@@ -272,7 +272,7 @@ Here, `obj2` holds a reference to the same object in memory as `obj1`. When you 
 ## **Q5. What is the difference between == (Equality Check) and === (Strict Equality Check) in JavaScript?** **Answer:** In JavaScript, == checks the equality of values, but === checks the equality of both the values and the type of the value. For example:
 
 ```javascript
-5 == 5;      // true
+5 == "5";      // true
 5 === "5";   // false
 ```
 

@@ -303,8 +303,8 @@ console.log(true + 2); // 3 (true is coerced to 1)
 console.log(false + "test"); // "falsetest" (false is coerced to a string)
 ```
 
-### **Q7. What are JavaScript data types? Can you explain the difference between null and undefined?**
-
+## **Q7. What are JavaScript data types? Can you explain the difference between null and undefined?**
+###**Answer:** 
 **Data types** in JavaScript are a way to categorize data based on the kind of values they hold. JavaScript has two main categories of data types:
 
 1. **Primitive Data Types**: These are immutable, meaning their values cannot be changed.
@@ -335,6 +335,88 @@ let x;            // x is declared but not assigned a value, so it's undefined
 let y = null;     // y is explicitly assigned the value of null, indicating no value
 ```
 
+## **Q8.How do you convert a variable from one data type to another in JavaScript? Can you provide examples for converting between string, number, and boolean types?**
+###**Answer:** 
+### Converting Data Types in JavaScript
+
+1. **Number to String**:
+   - You can convert a number to a string using:
+     - `String()`
+     - `toString()` method
+     - Template literals (using backticks)
+     - Concatenation with an empty string
+   - **Examples**:
+     ```javascript
+     let num = 5;
+     let str1 = String(num); // "5"
+     let str2 = num.toString(); // "5"
+     let str3 = `${num}`; // "5"
+     let str4 = num + ''; // "5"
+     ```
+
+2. **String to Number**:
+   - You can convert a string to a number using:
+     - `Number()`
+     - `parseInt()` for integers
+     - `parseFloat()` for floating-point numbers
+   - **Examples**:
+     ```javascript
+     let str = "5";
+     let num1 = Number(str); // 5
+     let num2 = parseInt(str); // 5
+     let num3 = parseFloat("5.5"); // 5.5
+     ```
+
+3. **String to Boolean**:
+   - While JavaScript does not have a direct method for converting strings to booleans, you can evaluate the truthiness of a string:
+     - An empty string (`""`) is falsy, while a non-empty string (like `"true"`) is truthy.
+   - **Example**:
+     ```javascript
+     let str = "true";
+     let bool = Boolean(str); // true
+     let emptyStr = "";
+     let boolEmpty = Boolean(emptyStr); // false
+     ```
+### **Note:**
+In JavaScript, values are considered **truthy** or **falsy** based on their behavior in a boolean context (like conditions in an `if` statement). Here's a breakdown:
+
+### Falsy Values
+These values evaluate to `false` when coerced to a boolean:
+1. **`false`** - The boolean value false.
+2. **`0`** - The number zero.
+3. **`-0`** - The negative zero.
+4. **`""`** or **`''`** - An empty string.
+5. **`null`** - Represents the absence of a value.
+6. **`undefined`** - Indicates that a variable has not been assigned a value.
+7. **`NaN`** - Stands for "Not-a-Number", a special value that indicates an invalid number.
+
+### Truthy Values
+These values evaluate to `true` when coerced to a boolean:
+- Any non-zero number (e.g., `1`, `-1`, `3.14`)
+- Any non-empty string (e.g., `"hello"`, `"false"`, `"0"`)
+- Any object (including arrays and functions)
+- Any array (e.g., `[]`, `[1, 2, 3]`)
+- The special value `Infinity` and `-Infinity`
+
+### Examples
+Here’s a quick demonstration of how these values behave in conditions:
+
+```javascript
+// Falsy values
+if (false) console.log('This won’t run.');
+if (0) console.log('This won’t run.');
+if ("") console.log('This won’t run.');
+if (null) console.log('This won’t run.');
+if (undefined) console.log('This won’t run.');
+if (NaN) console.log('This won’t run.');
+
+// Truthy values
+if (1) console.log('This will run.');
+if (-1) console.log('This will run.');
+if ("hello") console.log('This will run.');
+if ([]) console.log('This will run.');
+if ({}) console.log('This will run.');
+```
 
 
 

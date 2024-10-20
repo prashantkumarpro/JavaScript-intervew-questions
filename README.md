@@ -269,7 +269,8 @@ Here, `obj2` holds a reference to the same object in memory as `obj1`. When you 
 - **Pass by value** copies the actual value. Changes to one copy do not affect the other.
 - **Pass by reference** passes the memory address. Changes to the reference affect the original object or array.
 
-## **Q5. What is the difference between == (Equality Check) and === (Strict Equality Check) in JavaScript?** **Answer:** In JavaScript, == checks the equality of values, but === checks the equality of both the values and the type of the value. For example:
+## **Q5. What is the difference between == (Equality Check) and === (Strict Equality Check) in JavaScript?
+** **Answer:** In JavaScript, == checks the equality of values, but === checks the equality of both the values and the type of the value. For example:
 
 ```javascript
 5 == "5";      // true

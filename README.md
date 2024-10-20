@@ -270,14 +270,70 @@ Here, `obj2` holds a reference to the same object in memory as `obj1`. When you 
 - **Pass by reference** passes the memory address. Changes to the reference affect the original object or array.
 
 ## **Q5. What is the difference between == (Equality Check) and === (Strict Equality Check) in JavaScript?
-** **Answer:** In JavaScript, == checks the equality of values, but === checks the equality of both the values and the type of the value. For example:
+###**Answer:** In JavaScript, == checks the equality of values, but === checks the equality of both the values and the type of the value. For example:
 
 ```javascript
 5 == "5";      // true
 5 === "5";   // false
 ```
+### **Q6. What is type coercion in JavaScript?**
 
+**Type coercion** in JavaScript is the process where the JavaScript engine automatically or implicitly converts one data type to another in order to perform operations or comparisons. This happens when different types of values (e.g., strings and numbers) are used together.
 
+There are two types of type coercion:
+
+1. **Implicit Coercion**: This occurs automatically during operations. JavaScript attempts to convert data types to make them compatible with the operation being performed.
+   - Example:  
+     ```javascript
+     console.log(5 + "10"); // "510" (number 5 is coerced to a string, and the result is string concatenation)
+     console.log(5 == "5"); // true (the string "5" is coerced to a number before comparison)
+     ```
+
+2. **Explicit Coercion**: This happens when the developer intentionally converts a value from one type to another using functions like `Number()`, `String()`, or `Boolean()`.
+   - Example:  
+     ```javascript
+     console.log(Number("10"));  // 10 (string is explicitly converted to a number)
+     console.log(String(123));   // "123" (number is explicitly converted to a string)
+     ```
+
+#### Why is it important?
+Type coercion allows for flexibility in JavaScript, but it can also lead to unexpected results if you're not aware of how it works. For example:
+```javascript
+console.log(true + 2); // 3 (true is coerced to 1)
+console.log(false + "test"); // "falsetest" (false is coerced to a string)
+```
+
+### **Q7. What are JavaScript data types? Can you explain the difference between null and undefined?**
+
+**Data types** in JavaScript are a way to categorize data based on the kind of values they hold. JavaScript has two main categories of data types:
+
+1. **Primitive Data Types**: These are immutable, meaning their values cannot be changed.
+   - `Number`
+   - `String`
+   - `Boolean`
+   - `Undefined`
+   - `Null`
+   - `Symbol`
+   - `BigInt`
+
+2. **Non-Primitive (Reference) Data Types**: These are mutable, meaning their values can be changed.
+   - `Object`
+   - `Array`
+   - `Function`
+   - `Date`, etc.
+
+**Null** vs **Undefined**:
+- `null`: Represents the **intentional absence of any value**. It is used when a variable should be empty or have no value.
+  - Type: **Object** (This is a known bug in JavaScript but has been left as is for historical reasons).
+  
+- `undefined`: Indicates that a variable has been **declared but not yet assigned a value**. It is the default value for uninitialized variables.
+  - Type: **undefined**
+
+Example:
+```javascript
+let x;            // x is declared but not assigned a value, so it's undefined
+let y = null;     // y is explicitly assigned the value of null, indicating no value
+```
 
 
 

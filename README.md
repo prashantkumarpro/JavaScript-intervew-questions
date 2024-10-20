@@ -2,7 +2,7 @@
 
 ** Let's start:**
 
-[Day 1/30 JS interview challenge ]## ** Q1: Can you explain the difference between `var`, `let`, and `const` in JavaScript?**
+[Day 1/30 JS interview challenge ## ** Q1: Can you explain the difference between `var`, `let`, and `const` in JavaScript?**
 
 ###**Answer:**
 - **`var`** is function-scoped, meaning it is accessible throughout the function where it's declared. It can also be re-declared and re-assigned, but it leads to issues like **hoisting** and **unexpected behaviors** due to its scope.
@@ -267,7 +267,7 @@ Here, `obj2` holds a reference to the same object in memory as `obj1`. When you 
 
 ### Key Differences:
 - **Pass by value** copies the actual value. Changes to one copy do not affect the other.
-- **Pass by reference** passes the memory address. Changes to the reference affect the original object or array.
+- **Pass by reference** passes the memory address. Changes to the reference affect the original object or array.]
 
 
 

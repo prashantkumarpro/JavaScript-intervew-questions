@@ -480,6 +480,40 @@ if ({}) console.log('This will run.');
 - **Function expressions** are not hoisted because they are treated like any other variable assignment. The variable itself is hoisted, but its value (the function) is not.
 
 ## **Q11. What is the purpose of closures in JavaScript? Can you explain with an example?**:  
+### Closures in JavaScript:
+### **Answer:**
+**Closures** allow a function to access variables from an outer function even after the outer function has returned. This is possible because when an inner function is created, it retains a reference to the variables from the outer (parent) function’s scope.
+
+Here's an example of a closure:
+
+```javascript
+function exampleOfClosure() {
+    let outerVar = "I am outer.";
+
+    function innerFun() {
+        return outerVar; // Accessing the outerVar from the parent function
+    }
+    console.log(`${innerFun()} within innerFun`);
+}
+
+exampleOfClosure();
+```
+
+### Output:
+```
+I am outer. within innerFun
+```
+
+### Explanation:
+- **Outer function (`exampleOfClosure`)** defines a variable `outerVar`.
+- **Inner function (`innerFun`)** is able to access the `outerVar` defined in the parent function due to closure.
+- Even though the outer function finishes execution, the inner function still "remembers" the variable from its parent scope.
+
+Closures are commonly used in scenarios like:
+- **Data privacy**: Keeping variables private by encapsulating them in a function.
+- **Callbacks and event handlers**: Retaining access to a specific scope even when a function is passed around or delayed.
+
+## **Q12. What is the difference between `call()`, `apply()`, and `bind()` methods in JavaScript? Can you explain how they work with examples?**
 
 
 

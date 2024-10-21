@@ -452,7 +452,7 @@ if ({}) console.log('This will run.');
     ```
     - **Explanation**: This is a shorter syntax for function expressions. It’s great for simple functions and has some differences with regular functions, such as not having its own `this`.
 
-**## Q10. What is the difference between function declarations and function expressions in JavaScript? Can you explain how hoisting affects both?**
+## **Q10. What is the difference between function declarations and function expressions in JavaScript? Can you explain how hoisting affects both?**
 ###**Answer:** 
 
 **Function Declarations**:
@@ -479,7 +479,7 @@ if ({}) console.log('This will run.');
 - **Function declarations** are hoisted entirely (including their code block), so you can invoke them before they are declared.
 - **Function expressions** are not hoisted because they are treated like any other variable assignment. The variable itself is hoisted, but its value (the function) is not.
 
-##**Q11. What is the purpose of closures in JavaScript? Can you explain with an example?**:  
+## **Q11. What is the purpose of closures in JavaScript? Can you explain with an example?**:  
 
 
 

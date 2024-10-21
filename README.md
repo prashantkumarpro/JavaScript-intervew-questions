@@ -452,5 +452,34 @@ if ({}) console.log('This will run.');
     ```
     - **Explanation**: This is a shorter syntax for function expressions. It’s great for simple functions and has some differences with regular functions, such as not having its own `this`.
 
+**## Q10. What is the difference between function declarations and function expressions in JavaScript? Can you explain how hoisting affects both?**
+###**Answer:** 
+
+**Function Declarations**:
+- **Hoisting**: Function declarations are fully hoisted in JavaScript. This means the entire function is moved to the top of its scope during the compilation phase. As a result, you can call a function declared this way before it's defined in the code.
+    ```javascript
+    sayHello(); // Works even though the function is declared later
+
+    function sayHello() {
+        console.log('Hello!');
+    }
+    ```
+
+**Function Expressions**:
+- **Hoisting**: Function expressions, unlike declarations, are **not** hoisted. This means the function is only available after the expression is assigned. If you try to call the function before its assignment, you’ll get an error.
+    ```javascript
+    sayHello(); // Error: sayHello is not a function
+
+    let sayHello = function () {
+        console.log('Hello!');
+    };
+    ```
+
+### Key Difference:
+- **Function declarations** are hoisted entirely (including their code block), so you can invoke them before they are declared.
+- **Function expressions** are not hoisted because they are treated like any other variable assignment. The variable itself is hoisted, but its value (the function) is not.
+
+##**Q11. What is the purpose of closures in JavaScript? Can you explain with an example?**:  
+
 
 

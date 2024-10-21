@@ -417,7 +417,40 @@ if ("hello") console.log('This will run.');
 if ([]) console.log('This will run.');
 if ({}) console.log('This will run.');
 ```
+## **Q9.How do you convert a variable from one data type to another in JavaScript? Can you provide examples for converting between string, number, and boolean types?**
+###**Answer:** 
+**Functions in JavaScript** are blocks of reusable code that help make our code more modular and maintainable. There are different ways to define functions:
 
+1. **Function Declaration**:
+    ```javascript
+    function sumOfTwoNumbers(a, b) {
+        return a + b;
+    }
+
+    // Function is invoked here
+    sumOfTwoNumbers(5, 8); // Output: 13
+    ```
+    - **Explanation**: This is the most common way to define a function. It’s hoisted, meaning it can be called before its declaration in the code.
+
+2. **Function Expression**:
+    ```javascript
+    let test = function () {
+        console.log('I am a function');
+    };
+
+    test(); // Output: I am a function
+    ```
+    - **Explanation**: In this form, a function is assigned to a variable. It’s not hoisted, so it can only be called after the assignment.
+
+3. **Arrow Function** (introduced in ES6):
+    ```javascript
+    let testArrowFun = () => {
+        console.log('I am a function');
+    };
+
+    testArrowFun(); // Output: I am a function
+    ```
+    - **Explanation**: This is a shorter syntax for function expressions. It’s great for simple functions and has some differences with regular functions, such as not having its own `this`.
 
 
 

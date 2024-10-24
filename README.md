@@ -594,7 +594,199 @@ button.addEventListener('click', function() {
 ```
 **Explanation**: In an event handler, this refers to the element that triggered the event (myButton in this case)
 
-## **Q13. What is the difference between `call()`, `apply()`, and `bind()` methods in JavaScript? Can you explain how they work with examples?**
+## **Q13. What is the **temporal dead zone** in JavaScript, and how does it relate to `let` and `const`?**
+###**Answer:**
+In JavaScript, the **Temporal Dead Zone (TDZ)** refers to the time between the creation of a variable (via `let` or `const`) and its initialization. Variables declared with `let` and `const` are hoisted, but they cannot be accessed until the code execution reaches the point where they are initialized. If you try to access such variables before they are initialized, JavaScript will throw a **ReferenceError**.
+
+- Variables declared with `var` do not have a TDZ because they are initialized with `undefined` during hoisting, allowing access before initialization without throwing an error.
+
+Example:
+```javascript
+console.log(a); // ReferenceError: Cannot access 'a' before initialization
+let a = 10;
+```
+
+
+## Here are some interview questions related to **function parameters** and **arguments** in JavaScript:
+
+1. **What is the difference between parameters and arguments in JavaScript?**
+   - Follow-up: Can you provide an example that illustrates this difference?
+
+2. **What happens if you pass more arguments than the number of parameters defined in a function?**
+   - Follow-up: How does JavaScript handle it? Can you show an example?
+
+3. **What is the `arguments` object in JavaScript, and how can it be used inside a function?**
+   - Follow-up: Why would you use `arguments` instead of parameters in some cases?
+
+4. **Can you explain the concept of default parameters in JavaScript?**
+   - Follow-up: Provide an example where default parameters might be useful.
+
+5. **What is the significance of the `rest` parameter in JavaScript?**
+   - Follow-up: How does it differ from the `arguments` object? Can you show a scenario where you'd use the rest parameter?
+
+6. **How do you pass a function as an argument to another function (callback function)?**
+   - Follow-up: Can you demonstrate a simple example of a callback function?
+
+7. **What happens if you don't pass enough arguments to a function that expects parameters?**
+   - Follow-up: How does JavaScript handle missing arguments?
+
+8. **Can functions in JavaScript return multiple values? If so, how would you achieve that?**
+   - Follow-up: Can you give an example using arrays or objects?
+
+9. **What are anonymous functions in JavaScript, and how do you pass them as arguments to other functions?**
+   - Follow-up: Why might you use an anonymous function instead of a named one?
+
+10. **Explain the difference between `call()`, `apply()`, and `bind()` in terms of passing arguments to a function.**
+   - Follow-up: Can you provide examples demonstrating their differences?
+
+Let’s break down the answers to the interview questions about **function parameters** and **arguments** in simple English, along with code examples.
+
+---
+
+### 1. **Difference between Parameters and Arguments**
+- **Parameters** are placeholders defined when creating a function. **Arguments** are actual values passed to the function when it is called.
+
+**Example**:
+```javascript
+function greet(name) {  // 'name' is the parameter
+  console.log("Hello, " + name);
+}
+
+greet("Alice");  // "Alice" is the argument
+```
+
+### 2. **Passing More Arguments than Parameters**
+If you pass more arguments than parameters, JavaScript will ignore the extra arguments.
+
+**Example**:
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+
+console.log(sum(5, 10, 20));  // Outputs: 15, ignores the third argument
+```
+
+### 3. **The `arguments` Object**
+The `arguments` object is an array-like object that holds all the arguments passed to a function, regardless of the number of parameters.
+
+**Example**:
+```javascript
+function showArgs() {
+  console.log(arguments);
+}
+
+showArgs(1, 2, 3);  // Outputs: [1, 2, 3]
+```
+
+### 4. **Default Parameters**
+In JavaScript, you can set default values for parameters. If the argument is missing, the default value is used.
+
+**Example**:
+```javascript
+function greet(name = "Guest") {
+  console.log("Hello, " + name);
+}
+
+greet();  // Outputs: "Hello, Guest"
+greet("Alice");  // Outputs: "Hello, Alice"
+```
+
+### 5. **The Rest Parameter**
+The `rest` parameter allows you to collect multiple arguments into a single array. It must be the last parameter.
+
+**Example**:
+```javascript
+function sum(...numbers) {
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(1, 2, 3, 4));  // Outputs: 10
+```
+- **Difference from `arguments`:** `rest` is a real array, whereas `arguments` is an array-like object.
+
+### 6. **Passing a Function as an Argument (Callback Function)**
+A **callback function** is a function passed as an argument to another function.
+
+**Example**:
+```javascript
+function greet(name) {
+  console.log("Hello, " + name);
+}
+
+function processUser(callback) {
+  let user = "Alice";
+  callback(user);
+}
+
+processUser(greet);  // Outputs: "Hello, Alice"
+```
+
+### 7. **Missing Arguments**
+If a function is called with fewer arguments than defined parameters, the missing arguments are `undefined`.
+
+**Example**:
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+
+console.log(sum(5));  // Outputs: NaN (5 + undefined = NaN)
+```
+
+### 8. **Returning Multiple Values**
+You can return multiple values using arrays or objects.
+
+**Example using an array**:
+```javascript
+function getCoordinates() {
+  return [10, 20];  // Returns an array
+}
+
+const [x, y] = getCoordinates();
+console.log(x, y);  // Outputs: 10 20
+```
+
+**Example using an object**:
+```javascript
+function getUserInfo() {
+  return {name: "Alice", age: 25};  // Returns an object
+}
+
+const {name, age} = getUserInfo();
+console.log(name, age);  // Outputs: Alice 25
+```
+
+### 9. **Anonymous Functions**
+Anonymous functions don’t have a name. They are often used as arguments to other functions.
+
+**Example**:
+```javascript
+setTimeout(function() {
+  console.log("This is an anonymous function");
+}, 1000);
+```
+
+### 10. **Difference between `call()`, `apply()`, and `bind()`**
+- **`call()`**: Invokes a function with a specific `this` value and individual arguments.
+- **`apply()`**: Invokes a function with a specific `this` value but passes arguments as an array.
+- **`bind()`**: Returns a new function with a specific `this` value and allows us to pass arguments over time.
+
+**Example**:
+```javascript
+function greet(greeting, name) {
+  console.log(greeting + ", " + name);
+}
+
+greet.call(null, "Hello", "Alice");  // Outputs: "Hello, Alice"
+greet.apply(null, ["Hi", "Bob"]);  // Outputs: "Hi, Bob"
+
+const sayHelloToJohn = greet.bind(null, "Hello", "John");
+sayHelloToJohn();  // Outputs: "Hello, John"
+```
+
+
+
 
 
 

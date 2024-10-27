@@ -785,8 +785,313 @@ const sayHelloToJohn = greet.bind(null, "Hello", "John");
 sayHelloToJohn();  // Outputs: "Hello, John"
 ```
 
+## **11. What is the length property of a string in JavaScript, and how do you use it?**
+
+### **Answer:**
+In JavaScript, the `length` property of a string represents the number of characters in that string. It's a read-only property, so you can't change its value directly. The `length` property is useful when you need to determine the size of a string, such as when iterating through each character or validating input length.
+
+### Usage Example
+
+```javascript
+const greeting = "Hello, world!";
+console.log(greeting.length); // Output: 13
+```
+
+In this example, `greeting.length` returns `13` because there are 13 characters in `"Hello, world!"`, including spaces and punctuation.
+
+## **12. What is the purpose of String Template Literal in JavaScript?**
+### **Answer:**
+The purpose of **Template Literals** in JavaScript is to simplify string creation, especially when working with variables or expressions. Introduced in ES6, template literals allow you to embed expressions within strings using `${expression}` and support multi-line strings without extra syntax.
+
+### Key Benefits of Template Literals
+1. **Embedding Variables and Expressions**: Easily include variables or expressions without breaking the string.
+2. **Multi-line Strings**: Create strings that span multiple lines without needing special characters.
+3. **Enhanced Readability**: Improves readability and reduces the need for concatenation (`+`).
+
+### Syntax and Usage Example
+
+Template literals are defined using backticks (`` ` ``):
+
+```javascript
+const name = "Prashant";
+const age = 25;
+
+// Embedding variables in a string
+const introduction = `Hello, my name is ${name} and I am ${age} years old.`;
+console.log(introduction); 
+// Output: Hello, my name is Prashant and I am 25 years old.
+
+// Multi-line string
+const multiLine = `This is a
+multi-line string without
+special characters.`;
+console.log(multiLine);
+```
+
+In this example, `${name}` and `${age}` interpolate the values of the `name` and `age` variables directly into the string, and multi-line strings are created easily. Template literals help write cleaner, more readable, and maintainable code when handling strings in JavaScript.
 
 
+## **13. Which method is used to check if a string includes a specific substring in JavaScript?**
+### **Answer:**
+In JavaScript, the **`includes()`** method is used to check if a string contains a specific substring. It returns `true` if the substring is found within the string and `false` otherwise.
+
+### Syntax
+```javascript
+string.includes(substring, startIndex);
+```
+
+- **substring**: The string you want to search for.
+- **startIndex** (optional): The position in the string to start the search. The default is `0`.
+
+### Example
+
+```javascript
+const sentence = "JavaScript is fun!";
+console.log(sentence.includes("fun"));       // Output: true
+console.log(sentence.includes("Java"));      // Output: true
+console.log(sentence.includes("Python"));    // Output: false
+console.log(sentence.includes("Java", 1));   // Output: false
+```
+
+In this example:
+- `"fun"` and `"Java"` are found in the string, so `includes()` returns `true`.
+- `"Python"` isn’t found, so it returns `false`.
+- Starting the search from index `1` for `"Java"` returns `false` because it’s skipped. 
+
+The `includes()` method is case-sensitive, meaning `"fun"` and `"Fun"` would return different results.
+
+## 14. **What is string padStart() ?**
+
+### **Answer:**
+
+In JavaScript, the `padStart()` method is used to pad (or add) characters to the **beginning** of a string until it reaches a specified length. It’s useful when you want to format strings to a fixed length by adding extra characters (usually spaces or zeros) at the start.
+
+### Syntax
+```javascript
+string.padStart(targetLength, padString);
+```
+
+- **targetLength**: The length you want the final string to reach. If the string is already longer than this length, `padStart()` does nothing.
+- **padString** (optional): The string to pad with. By default, it’s a space (`" "`).
+
+### Example
+
+```javascript
+const str = "5";
+
+// Padding to length 3 with "0"
+console.log(str.padStart(3, "0")); // Output: "005"
+
+// Padding to length 6 with "*"
+console.log(str.padStart(6, "*")); // Output: "*****5"
+
+// Padding to length 4 with default (spaces)
+console.log(str.padStart(4)); // Output: "   5"
+```
+
+### Use Case Example
+The `padStart()` method is often used to format numbers or IDs:
+
+```javascript
+const orderNumber = "42";
+const paddedOrder = orderNumber.padStart(6, "0");
+console.log(paddedOrder); // Output: "000042"
+```
+
+In this example, `padStart(6, "0")` pads the number with zeros so it appears as a six-digit order number.
+
+## **15. What does the 'charCodeAt()' method return in JavaScript?**
+### **Answer:**
+
+In JavaScript, the `charCodeAt()` method returns the **Unicode value** (also called the UTF-16 code unit) of the character at a specified position in a string. This Unicode value is an integer between `0` and `65535`, representing characters such as letters, numbers, and symbols.
+
+### Syntax
+```javascript
+string.charCodeAt(index);
+```
+
+- **index**: The position of the character in the string (starting from `0` for the first character).
+
+If `index` is out of range (greater than or equal to the string length), `charCodeAt()` returns `NaN`.
+
+### Example
+
+```javascript
+const text = "Hello";
+
+console.log(text.charCodeAt(0)); // Output: 72 (Unicode for "H")
+console.log(text.charCodeAt(1)); // Output: 101 (Unicode for "e")
+console.log(text.charCodeAt(4)); // Output: 111 (Unicode for "o")
+console.log(text.charCodeAt(10)); // Output: NaN (index out of range)
+```
+
+### Use Case Example
+The `charCodeAt()` method can be useful for tasks like encryption, decryption, or any operation that requires the numeric value of a character in a string.
+
+
+## **16. What is the purpose of the 'trim()' method in JavaScript?**
+### **Answer:**
+
+In JavaScript, the `trim()` method is used to remove **whitespace** from both the **beginning and end** of a string. It doesn't modify the original string but returns a new string with the whitespace removed. This is useful for cleaning up user input or handling data where leading or trailing spaces may cause issues.
+
+### Syntax
+```javascript
+string.trim();
+```
+
+### Example
+
+```javascript
+const text = "   Hello, World!   ";
+console.log(text.trim()); // Output: "Hello, World!"
+```
+
+In this example, `trim()` removes the spaces at the start and end of `"   Hello, World!   "`, resulting in `"Hello, World!"`.
+
+### Use Cases
+1. **Cleaning User Input**: Useful when working with form data to ensure no unintended whitespace is included.
+2. **Data Processing**: Helps in cleaning up strings for more accurate comparison and processing.
+
+## **16. What string method would you use to find the index of a specific character in a string?**
+### **Answer:**
+In JavaScript, the `indexOf()` method is used to find the **index of the first occurrence** of a specified character or substring in a string. It returns the **position** of the character or substring within the string or `-1` if it is not found.
+
+### Syntax
+```javascript
+string.indexOf(searchValue, fromIndex);
+```
+
+- **searchValue**: The character or substring you want to find.
+- **fromIndex** (optional): The position to start the search from. The default is `0`.
+
+### Example
+
+```javascript
+const text = "Hello, world!";
+
+// Find the index of "o"
+console.log(text.indexOf("o")); // Output: 4 (first "o" in "Hello")
+console.log(text.indexOf("world")); // Output: 7
+console.log(text.indexOf("z")); // Output: -1 (not found)
+```
+
+### Use Cases
+1. **Checking for Substring Presence**: Useful for determining if a character or substring exists within a string.
+2. **Starting Position for Further Operations**: Helps locate specific positions to start or split operations within a string.
+
+## **17. Which method is used to split a string into an array of substrings based on a specified separator?**
+### **Answer:**
+
+In JavaScript, the **`split()`** method is used to divide a string into an array of substrings based on a specified separator. This method is useful when you want to break down a string into smaller parts, such as words, characters, or other defined sections.
+
+### Syntax
+```javascript
+string.split(separator, limit);
+```
+
+- **separator**: The character, substring, or regular expression to use for splitting. If omitted or an empty string (`""`), the entire string is split into individual characters.
+- **limit** (optional): An integer specifying the maximum number of splits. Extra splits are discarded.
+
+### Example
+
+```javascript
+const text = "apple,banana,cherry";
+
+// Split by comma
+const fruits = text.split(",");
+console.log(fruits); // Output: ["apple", "banana", "cherry"]
+
+// Split by each character
+const characters = text.split("");
+console.log(characters); 
+// Output: ["a", "p", "p", "l", "e", ",", "b", "a", "n", "a", "n", "a", ",", "c", "h", "e", "r", "r", "y"]
+
+// Split with a limit
+const limitedSplit = text.split(",", 2);
+console.log(limitedSplit); // Output: ["apple", "banana"]
+```
+
+### Use Cases
+1. **Parsing CSV data**: Splitting comma-separated values in strings.
+2. **Breaking sentences into words**: Useful for text processing, searching, or tokenization.
+3. **Splitting by character for specific manipulations**: When needing fine-grained character-level operations.
+
+## **18. What does the replace method do in JavaScript?**
+### **Answer:**
+In JavaScript, the **`replace()`** method is used to search a string for a specified substring or pattern (using a regular expression) and replace it with a new substring. This method returns a new string with the replacements made, without modifying the original string.
+
+### Syntax
+```javascript
+string.replace(searchValue, newValue);
+```
+
+- **searchValue**: The substring or a regular expression to search for in the string.
+- **newValue**: The string to replace the matched substring or pattern.
+
+### Example 1: Basic Usage
+```javascript
+const text = "Hello, world!";
+const newText = text.replace("world", "JavaScript");
+console.log(newText); // Output: "Hello, JavaScript!"
+```
+
+### Example 2: Using Regular Expressions
+You can also use regular expressions with the `replace()` method. By default, only the first match is replaced.
+
+```javascript
+const message = "I love apples and apples are great!";
+const newMessage = message.replace(/apples/g, "oranges");
+console.log(newMessage); // Output: "I love oranges and oranges are great!"
+```
+In this example, the regular expression `/apples/g` matches all occurrences of the word "apples" and replaces them with "oranges".
+
+### Key Points
+1. **Immutability**: The original string is not changed. A new string is returned.
+2. **First Match**: If a string is provided as the search value, only the first occurrence will be replaced unless you use a regular expression with the global (`g`) flag.
+3. **Case Sensitivity**: The `replace()` method is case-sensitive. For example, `text.replace("World", "JavaScript")` would not match "world".
+
+### Summary
+The `replace()` method is useful for tasks like string manipulation, formatting, or sanitizing user input, allowing you to easily modify strings according to your needs.
+
+## **19 What does the replaceAll method do in JavaScript?.**
+### **Answer:**
+In JavaScript, the **`replaceAll()`** method is used to search a string for all occurrences of a specified substring or pattern and replace them with a new substring. This method is similar to `replace()`, but it replaces all instances of the matched substring or pattern rather than just the first one.
+
+### Syntax
+```javascript
+string.replaceAll(searchValue, newValue);
+```
+
+- **searchValue**: The substring or a regular expression to search for in the string.
+- **newValue**: The string to replace the matched substring or pattern.
+
+### Example 1: Basic Usage
+```javascript
+const text = "I love apples and apples are great!";
+const newText = text.replaceAll("apples", "oranges");
+console.log(newText); // Output: "I love oranges and oranges are great!"
+```
+
+### Example 2: Using Regular Expressions
+You can also use a regular expression with `replaceAll()`. It will replace all occurrences that match the pattern.
+
+```javascript
+const message = "I like cats. Cats are great pets!";
+const newMessage = message.replaceAll(/cats/gi, "dogs");
+console.log(newMessage); // Output: "I like dogs. dogs are great pets!"
+```
+In this example, the regular expression `/cats/gi` matches all occurrences of "cats" in a case-insensitive manner (`g` for global and `i` for case-insensitive) and replaces them with "dogs".
+
+### Key Points
+1. **Replaces All Matches**: Unlike `replace()`, which only replaces the first match, `replaceAll()` replaces every occurrence of the specified substring or pattern.
+2. **Immutability**: Like `replace()`, it does not modify the original string but returns a new string with the replacements made.
+3. **Regular Expressions**: You can use both strings and regular expressions as the search value, but using regular expressions is less common with `replaceAll()` since it’s designed to replace all occurrences directly.
+
+### Compatibility
+- The `replaceAll()` method is available in modern JavaScript (ECMAScript 2021 and later). If you need to support older environments, you may want to use `replace()` with a global regular expression.
+
+### Summary
+The `replaceAll()` method is useful for string manipulation when you need to ensure that all instances of a substring or pattern are replaced, making it a convenient tool for tasks like text formatting or sanitizing input.
 
 
 

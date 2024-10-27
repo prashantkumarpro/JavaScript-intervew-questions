@@ -1,6 +1,6 @@
 # **JavaScript-intervew-questions**
 
-** Let's start:**\
+** Let's start:**
 
 ## ** Q1: Can you explain the difference between `var`, `let`, and `const` in JavaScript?**
 

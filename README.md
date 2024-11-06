@@ -1094,4 +1094,46 @@ In this example, the regular expression `/cats/gi` matches all occurrences of "c
 The `replaceAll()` method is useful for string manipulation when you need to ensure that all instances of a substring or pattern are replaced, making it a convenient tool for tasks like text formatting or sanitizing input.
 
 
+## **What is difference between find vs findIndex?**
+
+### **`find()`**
+- **Purpose**: The `find()` method returns the **first element** in the array that satisfies the condition specified in the provided function.
+- If no element satisfies the condition, it returns `undefined`.
+- It checks each element until it finds a match, then returns that element directly.
+
+#### Example:
+```javascript
+const checkArr = [1, 2, 3, 4, 5];
+
+// Find the first element greater than 2
+const findFirstElement = checkArr.find(element => element > 2);
+console.log(findFirstElement); // Output: 3
+```
+
+Here, `find()` returns the **first element** that is greater than 2, which is `3`.
+
+### **`findIndex()`**
+- **Purpose**: The `findIndex()` method returns the **index** of the first element in the array that satisfies the condition. If no element satisfies the condition, it returns `-1`.
+- It works similarly to `find()`, but instead of returning the element, it returns the **index** of that element in the array.
+
+#### Example:
+```javascript
+const checkArr = [1, 2, 3, 4, 5];
+
+// Find the index of the first element greater than 2
+const findFirstIndex = checkArr.findIndex(element => element > 2);
+console.log(findFirstIndex); // Output: 2
+```
+
+Here, `findIndex()` returns the **index** `2` because the first element greater than 2 is `3`, which is at index `2`.
+
+### Summary of Differences:
+1. **`find()`** returns the **element** itself that matches the condition.
+2. **`findIndex()`** returns the **index** of the element that matches the condition.
+3. If no match is found, `find()` returns `undefined`, while `findIndex()` returns `-1`.
+
+So, in your example:
+- `findFirstElement` would be the first element greater than 2, i.e., `3`.
+- `findFirstIndex` would be the index of the first element greater than 2, i.e., `2`.
+
 

@@ -1094,7 +1094,7 @@ In this example, the regular expression `/cats/gi` matches all occurrences of "c
 The `replaceAll()` method is useful for string manipulation when you need to ensure that all instances of a substring or pattern are replaced, making it a convenient tool for tasks like text formatting or sanitizing input.
 
 
-## **What is difference between find vs findIndex?**
+## Q19. **What is difference between find vs findIndex?**
 
 ### **`find()`**
 - **Purpose**: The `find()` method returns the **first element** in the array that satisfies the condition specified in the provided function.
@@ -1135,5 +1135,107 @@ Here, `findIndex()` returns the **index** `2` because the first element greater 
 So, in your example:
 - `findFirstElement` would be the first element greater than 2, i.e., `3`.
 - `findFirstIndex` would be the index of the first element greater than 2, i.e., `2`.
+## Q20. ** What is the difference between for-in and for-of in JavaScript?**
+### **Answer:**
+In JavaScript, **`for...in`** and **`for...of`** are both used for iterating, but they have different purposes and work with different types of data.
 
+### `for...in`
+- **Purpose**: Iterates over the **keys** (or property names) of an **object**.
+- **Use Case**: Works best with objects, where you want to access each property name.
+- **Syntax**:
+  ```javascript
+  for (const key in obj) {
+      // code to execute
+  }
+  ```
 
+#### Example:
+```javascript
+const obj1 = { name: "pp", age: 25 };
+
+for (const key in obj1) {
+    console.log(key); // Output: "name", "age"
+    console.log(obj1[key]); // Output: "pp", 25
+}
+```
+
+Here, `for...in` iterates over the property names (`name` and `age`), allowing you to access both the keys and their values using `obj1[key]`.
+
+### `for...of`
+- **Purpose**: Iterates over **values** of an **iterable object** (like arrays, strings, Maps, Sets, etc.).
+- **Use Case**: Works with arrays, strings, and other iterables, where you want to access each value directly.
+- **Syntax**:
+  ```javascript
+  for (const value of iterable) {
+      // code to execute
+  }
+  ```
+
+#### Example:
+```javascript
+const arr = ["apple", "banana", "cherry"];
+
+for (const value of arr) {
+    console.log(value); // Output: "apple", "banana", "cherry"
+}
+```
+
+In this example, `for...of` iterates directly over the values of the array. Note that `for...of` cannot be used directly on objects because objects are not inherently iterable.
+
+### Important Note:
+Attempting to use `for...of` on a non-iterable object (like `obj1` in your example) will result in an error:
+
+```javascript
+const obj1 = { name: "pp", age: 25 };
+
+// This will throw an error because obj1 is not iterable
+for (const value of obj1) {
+    console.log(value);
+}
+```
+
+### Summary
+- **`for...in`**: Iterates over the **keys** of an object.
+- **`for...of`**: Iterates over the **values** of an iterable (like arrays, strings).
+
+## Q21. **What is the difference between 'Pass by Value' and 'Pass by Reference'?**
+### **Answer:**
+In JavaScript, **Pass by Value** and **Pass by Reference** refer to how data is handled when passed to functions. Here’s the difference:
+
+### Pass by Value
+- **Used for:** Primitive data types, like `Number`, `String`, `Boolean`, `undefined`, `null`, `Symbol`, and `BigInt`.
+- **How it works:** When a primitive value is passed to a function, JavaScript creates a **copy** of the value. The function works with this copy, so any modifications within the function do not affect the original variable outside the function.
+
+#### Example:
+```javascript
+let x = 10;
+
+function modifyValue(val) {
+    val = 20;
+}
+
+modifyValue(x);
+console.log(x); // Output: 10
+```
+- Here, `x` remains `10` outside the function because `val` is a copy, and changing it inside the function doesn’t affect the original `x`.
+
+### Pass by Reference
+- **Used for:** Non-primitive data types, like `Object`, `Array`, and functions themselves.
+- **How it works:** When a non-primitive value is passed to a function, JavaScript passes a **reference** to the memory address where the original data is stored. Any modifications made within the function to this reference affect the original object or array outside the function.
+
+#### Example:
+```javascript
+let person = { name: "Alice" };
+
+function changeName(obj) {
+    obj.name = "Bob";
+}
+
+changeName(person);
+console.log(person.name); // Output: "Bob"
+```
+- In this case, `person` is modified because `obj` refers to the same memory address, so changes affect the original object.
+
+### Summary
+- **Pass by Value:** Creates a copy; changes inside the function don’t affect the original.
+- **Pass by Reference:** Passes a memory reference; changes inside the function affect the original.
